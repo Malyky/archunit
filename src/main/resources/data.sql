@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS "Order"
+(
+    "id"
+    INTEGER
+    PRIMARY
+    KEY
+    AUTO_INCREMENT,
+    "name"
+    VARCHAR
+(
+    50
+) NOT NULL
+    );
+insert into "Order" ("name")
+values ('test');
+/*INSERT INTO countries (id, name) VALUES (1, 'USA');
+INSERT INTO countries (id, name) VALUES (2, 'France');
+INSERT INTO countries (id, name) VALUES (3, 'Brazil');
+INSERT INTO countries (id, name) VALUES (4, 'Italy');
+INSERT INTO countries (id, name) VALUES (5, 'Canada');*/
+
+alter table "Order" RENAME TO "order";
