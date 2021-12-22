@@ -1,9 +1,18 @@
 package com.consol.archunit.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 
 @Entity()
 @Table(name = "BOOK")
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Book {
 
 
@@ -15,23 +24,6 @@ public class Book {
         @Column(name = "NAME")
         private String name;
 
-
-        public Book() {
-        }
-
-        public Long getId() {
-                return id;
-        }
-
-        public void setId(Long id) {
-                this.id = id;
-        }
-
-        public String getName() {
-                return name;
-        }
-
-        public void setName(String name) {
-                this.name = name;
-        }
+        @Column(name = "PRICE")
+        private int preis;
 }

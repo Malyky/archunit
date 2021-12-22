@@ -3,7 +3,7 @@ package com.consol.archunit.facade;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OrderBF {
+public class BookBF {
 
     public String modifyOrder(String order){
 
