@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS "SHOPPINGCART"
+(
+    "ID"
+    INTEGER
+    PRIMARY
+    KEY
+    AUTO_INCREMENT,
+    "BOOK_ID" int not null,
+    "USER"
+    VARCHAR (50)
+);
+
+ALTER TABLE SHOPPINGCART add constraint FK_BOOK_ID FOREIGN Key (BOOK_ID) REFERENCES BOOK(ID);
+
+insert into SHOPPINGCART ("BOOK_ID", "USER") VALUES (1, 'ConSol');
+insert into SHOPPINGCART ("BOOK_ID", "USER") VALUES (2, 'ConSol');
+insert into SHOPPINGCART ("BOOK_ID", "USER") VALUES (2, 'Conny');
+
+
+
+
