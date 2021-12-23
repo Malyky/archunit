@@ -68,6 +68,20 @@
 			<version>2.4.5</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.tngtech.archunit/archunit -->
+		<dependency>
+			<groupId>com.tngtech.archunit</groupId>
+			<artifactId>archunit</artifactId>
+			<version>0.22.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.4.0</version>
+			<scope>test</scope>
+		</dependency>
+
 
 	</dependencies>
 
