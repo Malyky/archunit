@@ -17,13 +17,13 @@ public class Book {
 
 
         @Id
-        @GeneratedValue
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "ID")
-        private Long id;
+        private Long bookId;
 
         @Column(name = "NAME")
         private String name;
 
         @Column(name = "PRICE")
-        private int preis;
+        private int price;
 }

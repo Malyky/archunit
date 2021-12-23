@@ -1,8 +1,9 @@
 package com.consol.archunit.controller;
 
-import com.consol.archunit.entity.ShoppingCart;
-import com.consol.archunit.facade.ShoppingCartBF;
+import com.consol.archunit.enums.PaymentOptions;
+import com.consol.archunit.facade.PaymentBF;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
 public class PaymentController {
 
     @Autowired
-    private ShoppingCartBF shoppingCartBF;
+    private PaymentBF paymentBF;
 
     @Operation(summary = "Pay for Shoppingcart")
     @ApiResponses(value = {
@@ -27,12 +29,11 @@ public class PaymentController {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Order not found",
                     content = @Content) })
-    @GetMapping(value = "/payment", produces = "application/json")
-    public ResponseEntity<?> payment(){
+    @GetMapping(value = "/paymentOptions", produces = "application/json")
+    public ResponseEntity<?> payment(@Parameter(name ="user", example = "ConSol") String user){
 
-        String t = "test";
-        // Iterable<OrderRepository> all = orderRepository.findAll();
-        return new ResponseEntity<>(t, HttpStatus.OK);
+        List<PaymentOptions> paymentOptions = paymentBF.calculatePaymentMethod(user);
+        return new ResponseEntity<>(paymentOptions, HttpStatus.OK);
 
     }
 }
